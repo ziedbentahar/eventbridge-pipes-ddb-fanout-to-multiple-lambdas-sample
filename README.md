@@ -8,3 +8,5 @@ In this example the event bridge pipe defines:
 And finally, the fan out is configured by defining an EB Rule that targets the destination lambdas
 
 Stack: NodeJs, typescript and CDK  
+
+![image](https://user-images.githubusercontent.com/6813975/219195584-627d0174-954d-4a2f-8d19-f307f10d24d2.png)
