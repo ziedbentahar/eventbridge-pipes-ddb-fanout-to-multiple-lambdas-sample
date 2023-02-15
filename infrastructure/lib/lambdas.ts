@@ -17,10 +17,7 @@ export class Lambdas extends NestedStack {
 
     const { applicationName } = props!;
 
-    const function1 = new NodejsFunction(this, `applicationName-lambda-1`, {
-      entry: resolve("../src/lambdas/lambda1.ts"),
-      functionName: "lambda1",
-      handler: "handler",
+    const lambdaConfig = {
       memorySize: 512,
       timeout: Duration.seconds(10),
       runtime: Runtime.NODEJS_18_X,
@@ -29,34 +26,27 @@ export class Lambdas extends NestedStack {
       environment: {
         NODE_OPTIONS: "--enable-source-maps",
       },
+    };
+
+    const function1 = new NodejsFunction(this, `applicationName-lambda-1`, {
+      entry: resolve("../src/lambdas/lambda1.ts"),
+      functionName: "lambda1",
+      handler: "handler",
+      ...lambdaConfig,
     });
 
     const function2 = new NodejsFunction(this, `applicationName-lambda-2`, {
       entry: resolve("../src/lambdas/lambda2.ts"),
       functionName: "lambda2",
       handler: "handler",
-      memorySize: 512,
-      timeout: Duration.seconds(10),
-      runtime: Runtime.NODEJS_18_X,
-      architecture: Architecture.ARM_64,
-      logRetention: RetentionDays.THREE_DAYS,
-      environment: {
-        NODE_OPTIONS: "--enable-source-maps",
-      },
+      ...lambdaConfig,
     });
 
     const function3 = new NodejsFunction(this, `applicationName-lambda-3`, {
       entry: resolve("../src/lambdas/lambda3.ts"),
       functionName: "lambda3",
       handler: "handler",
-      memorySize: 512,
-      timeout: Duration.seconds(10),
-      runtime: Runtime.NODEJS_18_X,
-      architecture: Architecture.ARM_64,
-      logRetention: RetentionDays.THREE_DAYS,
-      environment: {
-        NODE_OPTIONS: "--enable-source-maps",
-      },
+      ...lambdaConfig,
     });
 
     this.functions = [function1, function2, function3];
