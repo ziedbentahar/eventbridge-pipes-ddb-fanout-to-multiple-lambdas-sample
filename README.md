@@ -1,4 +1,4 @@
-# eventbridge-pipes-sample-ddb-to-multiple-lambdas
+# eventbridge-pipes-sample-ddb-fanout-to-multiple-lambdas
 
 This application serves as an example for an EventBridge Pipes use case: Processing DynamoDb stream by multiple lambdas using fanout pattern by using event brige pipes.
 
