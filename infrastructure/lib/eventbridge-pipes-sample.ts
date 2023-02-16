@@ -1,6 +1,6 @@
 import { Stack, StackProps } from "aws-cdk-lib";
 import { Construct } from "constructs";
-import { Database } from "./Database";
+import { Database } from "./database";
 import { EventBus } from "./eventbus";
 import { Lambdas } from "./lambdas";
 import { Pipe } from "./pipe";
