@@ -59,6 +59,7 @@ export class Pipe extends NestedStack {
     });
 
     const pipe = new CfnPipe(this, "pipe", {
+      name: pipeName,
       roleArn: pipeRole.roleArn,
       source: sourceDb.tableStreamArn!,
       sourceParameters: {
@@ -66,7 +67,6 @@ export class Pipe extends NestedStack {
           startingPosition: "LATEST",
         },
       },
-
       target: targetEventBus.eventBusArn,
     });
   }

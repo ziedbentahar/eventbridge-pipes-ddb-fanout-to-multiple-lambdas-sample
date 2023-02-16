@@ -30,21 +30,21 @@ export class Lambdas extends NestedStack {
 
     const function1 = new NodejsFunction(this, `applicationName-lambda-1`, {
       entry: resolve("../src/lambdas/lambda1.ts"),
-      functionName: "lambda1",
+      functionName: `${applicationName}-lambda1`,
       handler: "handler",
       ...lambdaConfig,
     });
 
     const function2 = new NodejsFunction(this, `applicationName-lambda-2`, {
       entry: resolve("../src/lambdas/lambda2.ts"),
-      functionName: "lambda2",
+      functionName: `${applicationName}-lambda2`,
       handler: "handler",
       ...lambdaConfig,
     });
 
     const function3 = new NodejsFunction(this, `applicationName-lambda-3`, {
       entry: resolve("../src/lambdas/lambda3.ts"),
-      functionName: "lambda3",
+      functionName: `${applicationName}-lambda3`,
       handler: "handler",
       ...lambdaConfig,
     });
