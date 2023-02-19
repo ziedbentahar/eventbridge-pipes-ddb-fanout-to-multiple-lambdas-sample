@@ -62,12 +62,22 @@ export class Pipe extends NestedStack {
       name: pipeName,
       roleArn: pipeRole.roleArn,
       source: sourceDb.tableStreamArn!,
+
       sourceParameters: {
         dynamoDbStreamParameters: {
           startingPosition: "LATEST",
         },
       },
       target: targetEventBus.eventBusArn,
+      targetParameters: {
+        inputTemplate: `{
+          "id": <$.dynamodb.NewImage.Id.S>,
+          "email": <$.dynamodb.NewImage.email.S>,
+          "message": <$.dynamodb.NewImage.message.S>,
+          "product": <$.dynamodb.NewImage.product.S>,
+          "serviceRate": <$.dynamodb.NewImage.serviceRate.N>
+        }`,
+      },
     });
   }
 }

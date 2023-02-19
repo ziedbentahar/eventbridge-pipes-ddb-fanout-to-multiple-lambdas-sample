@@ -1,5 +1,6 @@
 import { Stack, StackProps } from "aws-cdk-lib";
 import { Construct } from "constructs";
+import { ApiGateway } from "./apigateway";
 import { Database } from "./database";
 import { EventBus } from "./eventbus";
 import { Lambdas } from "./lambdas";
@@ -12,6 +13,11 @@ export class EventBridgePipeSample extends Stack {
     const applicationName = "eventbridge-pipes-sample";
 
     const database = new Database(this, "database", { applicationName });
+
+    const apiGateway = new ApiGateway(this, "apigateway", {
+      applicationName,
+      destinationTable: database.table,
+    });
 
     const lambdas = new Lambdas(this, "lambdas", { applicationName });
 
