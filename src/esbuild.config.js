@@ -1,6 +1,6 @@
 require("esbuild")
   .build({
-    entryPoints: ["./lambdas/lambda-aa.ts"],
+    entryPoints: ["./lambdas/*.ts"],
     entryNames: "[dir]/[name]",
     outbase: ".",
     bundle: true,
