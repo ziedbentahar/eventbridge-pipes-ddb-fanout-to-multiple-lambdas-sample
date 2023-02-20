@@ -67,6 +67,7 @@ export class Pipe extends NestedStack {
         dynamoDbStreamParameters: {
           startingPosition: "LATEST",
         },
+        filterCriteria,
       },
       target: targetEventBus.eventBusArn,
       targetParameters: {
