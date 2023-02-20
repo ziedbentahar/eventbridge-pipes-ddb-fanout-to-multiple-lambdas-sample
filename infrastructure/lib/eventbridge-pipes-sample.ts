@@ -19,11 +19,13 @@ export class EventBridgePipeSample extends Stack {
       destinationTable: database.table,
     });
 
-    const lambdas = new Lambdas(this, "lambdas", { applicationName });
-
     const eventBus = new EventBus(this, "eventbus", {
       applicationName,
-      targetFunctions: lambdas.functions,
+    });
+
+    const lambdas = new Lambdas(this, "lambdas", {
+      applicationName,
+      eventBus: eventBus.eventBus,
     });
 
     const pipe = new Pipe(this, "pipe", {
