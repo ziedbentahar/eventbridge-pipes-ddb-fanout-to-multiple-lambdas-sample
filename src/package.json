@@ -1,5 +1,5 @@
 {
-  "name": "s3-lambda-object-sample",
+  "name": "eventbridge-pipes-ddb-fanout-to-multiple-lambdas-sample",
   "scripts": {
     "build": "tsc && node esbuild.config.js"
   },
